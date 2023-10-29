@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+        index
+{% endblock title %}
+
+{% block content %}
+        
+
+  <section id="courseslist" class="courseslist">
+    <div class="container ">
+          <div class="row  ">
+            {% for course in  listOfCourses %}
+            <div class="col-md-3  mb-2">
+
+              <div class="card  " style="margin: 10px 0px; padding:5px height:350px">
+                {% if course.image %}
+                <img src="{{course.image.url}}" class="card-img-top"
+                      alt="Hollywood Sign on The Hill" style="height:170px"/>
+                {% else %}
+                  <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top"
+                      alt="Hollywood Sign on The Hill" style="height:170px"/>
+                {% endif %}
+                  <div class="card-body" style="height:180px">
+                      <h5 class="card-title">{{course.title}}</h5>
+                      <p class="card-text">
+                        {{course.Description}}
+                      </p>
+                      <p class="card-text">
+                        <a href="https://{{course.link}}" target='_blank' class="btn btn-primary">Get the course</a>
+                      </p>
+                  </div>
+              </div>
+
+            </div>
+            
+            {% endfor %}
+
+            
+        </div>
+
+    </div>
+  </section>
+        
+          
+{% endblock content %}

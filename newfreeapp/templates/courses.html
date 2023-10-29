@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% block title %}
+        course page
+{% endblock title %}
+
+{% block content %}
+        
+
+
+<div  class="col-12 d-flex justify-content-center" style="margin: 10px auto">
+  <form method="POST" enctype="multipart/form-data">
+      <h4 class="auth-header"> Create a new course</h4>
+      {% csrf_token %}
+          {{ course_form }}
+          <div class="buttons-w d-flex justify-content-center"><button type="submit" class="btn btn-success">التسجيل</button></div>
+  </form>
+</div>
+        
+          
+{% endblock content %}

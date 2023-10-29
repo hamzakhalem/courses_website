@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+
+            {% block title %}
+          
+            {% endblock title %}
+        </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Add this line to the head section of your HTML template(s) -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Link the local Bootstrap CSS file -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+    </head>
+    <body>
+   
+        <header class="p-3 bg-dark text-white">
+            <div class="container">
+              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                  
+                </a>
+        
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                  <li><a href="" class="nav-link px-2 text-secondary">Home</a></li>
+                  <li><a href="#" class="nav-link px-2 text-white">Courses</a></li>
+                  <li><a href="#" class="nav-link px-2 text-white">About us</a></li>
+                </ul>
+        
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                  <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                </form>
+        
+                <div class="text-end">
+                  {% comment %} <button type="button" class="btn btn-outline-light me-2">Login</button>
+                  <button type="button" class="btn btn-warning">Sign-up</button> {% endcomment %}
+                </div>
+              </div>
+            </div>
+        </header>
+
+
+
+
+        {% block content %}
+        
+        {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+    </html>
