@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from .forms import CourseForm
 from .models import Course
-
+from django.http import HttpResponse
+import random
 # Create your views here.
 def index(request):
     listOfCourses = Course.objects.all()
     return render(request,'index.html',  {'listOfCourses': listOfCourses})
+
+def course(request, id):
+    course = Course.objects.get(pk=id)
+    return render(request, 'course.html', context={"course": course})
 
 def create_course(request):
 

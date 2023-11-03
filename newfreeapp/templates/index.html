@@ -27,7 +27,7 @@
                         {{course.Description}}
                       </p>
                       <p class="card-text">
-                        <a href="https://{{course.link}}" target='_blank' class="btn btn-primary">Get the course</a>
+                        <a href='{% url "course" course.id %}' target='_blank' class="btn btn-primary">Get the course</a>
                       </p>
                   </div>
               </div>
