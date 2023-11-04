@@ -10,6 +10,9 @@
           
             {% endblock title %}
         </title>
+        {% block csstags %}
+        
+        {% endblock csstags %}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Add this line to the head section of your HTML template(s) -->
@@ -30,7 +33,7 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                   <li><a href="{% url 'home' %}" class="nav-link px-2 text-secondary">Home</a></li>
                   <li><a href="#" class="nav-link px-2 text-white">Courses</a></li>
-                  <li><a href="#" class="nav-link px-2 text-white">About us</a></li>
+                  <li><a href='{% url "aboutus" %}' class="nav-link px-2 text-white">About us</a></li>
                 </ul>
         
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">

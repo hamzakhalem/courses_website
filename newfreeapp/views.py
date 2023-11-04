@@ -8,6 +8,9 @@ def index(request):
     listOfCourses = Course.objects.all()
     return render(request,'index.html',  {'listOfCourses': listOfCourses})
 
+def aboutus(request):
+    return render(request,'aboutus.html')
+
 def course(request, id):
     course = Course.objects.get(pk=id)
     return render(request, 'course.html', context={"course": course})
