@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from .forms import CourseForm
 from .models import Course
-from django.http import HttpResponse
-import random
+from django.http import HttpResponse, JsonResponse
+from django.views import View
+import json
 # Create your views here.
 def index(request):
     listOfCourses = Course.objects.all()
@@ -27,3 +28,15 @@ def create_course(request):
 
 
     return render(request, "courses.html", {'course_form': course_form})
+
+class CourseView(View):
+    def get(self, request, *args, **kwargs):
+        return JsonResponse({'name': 'chegra'})
+    
+    def post(self, request, *args, **kwargs):
+        print(request.POST)
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        print(body['coursename'])
+        # content = body['content']
+        return JsonResponse({'name': 'chegra'})

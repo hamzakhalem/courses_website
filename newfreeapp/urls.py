@@ -6,4 +6,5 @@ urlpatterns = [
     path('aboutus/', views.aboutus, name='aboutus'),
     path('create-course/', views.create_course),
     path('course/<int:id>/', views.course, name="course"),
+    path('CourseView/api/', views.CourseView.as_view()),
 ]
