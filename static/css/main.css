@@ -4,4 +4,13 @@
 .card-img-top {
   height: 70px;
 }
-
+.myLogo{
+  height: 80px; 
+  width:150px; 
+  margin-right: 40px
+}
+.mycard{
+  margin: 10px 0px; 
+  padding:5px;
+  height:350px
+}

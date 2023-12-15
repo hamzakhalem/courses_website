@@ -16,52 +16,75 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Add this line to the head section of your HTML template(s) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Link the local Bootstrap CSS file -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-
+        <style>
+          /* Add your custom styles here */
+          .social-bar {
+              background-color: #333;
+              padding: 10px;
+              text-align: center;
+              border-radius: 5px
+          }
+        
+          .social-bar a {
+              color: #fff;
+              text-decoration: none;
+              margin: 0 15px;
+              font-size: 20px;
+          }
+        </style>
     </head>
-    <body>
+    <body  style="padding-bottom: ">
    
         <header class="p-3 bg-dark text-white">
             <div class="container">
               <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                  
+                <a href="{% url 'home' %}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                  <img src="{% static 'images/mylogo.png' %}" alt="home page" class="myLogo" >
                 </a>
         
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                  <li><a href="{% url 'home' %}" class="nav-link px-2 text-secondary">Home</a></li>
-                  <li><a href="#" class="nav-link px-2 text-white">Courses</a></li>
+                  <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a></li>
+                  <li><a href="#" class="nav-link px-2 text-secondary">Courses</a></li>
                   <li><a href='{% url "aboutus" %}' class="nav-link px-2 text-white">About us</a></li>
                 </ul>
         
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                  <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                </form>
-        
-                <div class="text-end">
-                  {% comment %} <button type="button" class="btn btn-outline-light me-2">Login</button>
-                  <button type="button" class="btn btn-warning">Sign-up</button> {% endcomment %}
+                
+                <div class="text-end float-right t col-lg-4">
+                  <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"  action="{% url 'home' %}" method='GET'
+                    style=" display: flex; flex-direction:row;">
+                    <input type="search" class="form-control form-control-dark" name="search" placeholder="Search..." aria-label="Search">
+                    <button type="submit" class="btn btn-outline-light me-2"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  </form>  
+
                 </div>
               </div>
             </div>
         </header>
 
+        <div id="wrap">
 
-
-
+ 
         {% block content %}
         
         {% endblock content %}
+        </div>
 
-
-
-
-
-
-
-
+        <footer class="p-3 bg-dark text-white  d-flex flex-row  footer navbar navbar-fixed-bottom">
+          <div style="width:100%; text-align:center">
+            <p>You can join Us in all social medias</p>
+            <div class="social-bar">
+              <a href="https://www.tiktok.com/@wzrtech" target="_blank"><i class="fab fa-tiktok"></i></a>
+              <a href="https://www.facebook.com/WZRTECH" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.instagram.com/wzrtech/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/channel/UC4Y7esoOZ3DUtWPX1OAbjBg" target="_blank"><i class="fab fa-youtube"></i></a>
+              <a href="https://t.me/wzrtechCourses" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+          </div>
+        </footer>
 
 
 
