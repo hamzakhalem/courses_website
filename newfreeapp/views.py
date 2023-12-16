@@ -40,7 +40,8 @@ def create_course(request):
 def delete(koko):
     Course.objects.all().delete()
     return JsonResponse({'name': 'chegra'})
-
+def custom_404():
+    return HttpResponse('ERROR 404')
 class CourseView(View):
     def get(self, request, *args, **kwargs):
         return JsonResponse({'name': 'chegra'})
@@ -52,3 +53,4 @@ class CourseView(View):
         new_course = Course.objects.create(title=body['title'], link=body['link'])
         content = body['title']
         return JsonResponse({"id": new_course.id, 'name': content,  "link" : new_course.link})
+    

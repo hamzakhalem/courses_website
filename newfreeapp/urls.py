@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.conf.urls import handler404
 urlpatterns = [
     path('', views.index, name='home'),
     path('aboutus/', views.aboutus, name='aboutus'),
