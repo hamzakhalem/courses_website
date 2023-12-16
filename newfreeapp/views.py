@@ -37,11 +37,13 @@ def create_course(request):
 
     return render(request, "courses.html", {'course_form': course_form})
 
-def delete(koko):
+def delete(request):
     Course.objects.all().delete()
     return JsonResponse({'name': 'chegra'})
-def custom_404():
-    return HttpResponse('ERROR 404')
+def custom_404(request, ex):
+    return render(request, "errorpage.html")
+def custom_500(request):
+    return render(request, "errorpage.html")
 class CourseView(View):
     def get(self, request, *args, **kwargs):
         return JsonResponse({'name': 'chegra'})
