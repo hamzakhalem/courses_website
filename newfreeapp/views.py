@@ -5,6 +5,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views import View
 import json
 from django.core.paginator import Paginator
+from django.forms.models import model_to_dict
 # Create your views here.
 def index(request):
     
@@ -34,10 +35,9 @@ def create_course(request):
     else:
         course_form = CourseForm()
 
-
     return render(request, "courses.html", {'course_form': course_form})
 
-def delete():
+def delete(koko):
     Course.objects.all().delete()
     return JsonResponse({'name': 'chegra'})
 
@@ -49,6 +49,6 @@ class CourseView(View):
         print(request.POST)
         body_unicode = request.body.decode('utf-8')
         body = json.loads(body_unicode)
-        print(body['coursename'])
-        # content = body['content']
-        return JsonResponse({'name': 'chegra'})
+        new_course = Course.objects.create(title=body['title'], link=body['link'])
+        content = body['title']
+        return JsonResponse({"id": new_course.id, 'name': content,  "link" : new_course.link})
