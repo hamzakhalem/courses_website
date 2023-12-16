@@ -37,6 +37,10 @@ def create_course(request):
 
     return render(request, "courses.html", {'course_form': course_form})
 
+def delete():
+    Course.objects.all().delete()
+    return JsonResponse({'name': 'chegra'})
+
 class CourseView(View):
     def get(self, request, *args, **kwargs):
         return JsonResponse({'name': 'chegra'})
