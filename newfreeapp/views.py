@@ -25,6 +25,9 @@ def course(request, id):
     course = Course.objects.get(pk=id)
     return render(request, 'course.html', context={"course": course})
 
+def freecourses(request):
+    return render(request, 'multi-courses.html')
+
 def create_course(request):
 
     if request.method == 'POST':
